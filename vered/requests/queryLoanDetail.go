@@ -16,7 +16,7 @@ const (
 
 type QueryLoanDetailRequest struct {
 	vered.BaseRequest
-	loanNum string `json:"loanNum"` // 借据编号
+	LoanNum string `json:"loanNum"` // 借据编号
 }
 
 func (this *QueryLoanDetailRequest) Method() string {
