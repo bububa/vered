@@ -113,7 +113,8 @@ type File struct {
 }
 
 type LoanBasicInfo struct {
-	GuaType             string  `json:"guaType"`                // 担保方式, 必输 04信用
+	Amount              float64 `json:"imumAmount,omitempty"`
+	GuaType             string  `json:"guaType,omitempty"`      // 担保方式, 必输 04信用
 	IntCalMode          string  `json:"intCalMode"`             // 还款方式, 必输 01 等额本息 02 等额本金 03 一次还本付息 04 按期付息到期还本 05 等本等息
 	ProductDeadline     string  `json:"productDeadline"`        // 借款期限
 	ProductDeadlineUnit string  `json:"productDeadlineUnit"`    // 借款期限单位, 必输 01 天 02 月 03 年
