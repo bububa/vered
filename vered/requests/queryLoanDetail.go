@@ -37,7 +37,7 @@ type LoanDetailInfo struct {
 	PenaltyIntRate        float64       `json:"penaltyIntRate"`        // 罚息利率
 	RateFloatTypeInd      string        `json:"rateFloatTypeInd"`      // 是否浮动利率, Y:是 / N:否
 	LoanAmount            float64       `json:"loanAmount"`            // 借据金额
-	RepaymentDate         string        `json:"repaymentDate"`         // 还款日
+	RepaymentDate         int64         `json:"repaymentDate"`         // 还款日
 	RepaymentDateRuleCode RepayDateRule `json:"repaymentDateRuleCode"` // 还款日规则, TRANCHE_DAY：放款日对日 FIX_DAY：固定日历日
 	RepaymentMethodCode   string        `json:"repaymentMethodCode"`   // 还款方式,  01: 等额本息(ANNUITY) 02: 等额本金(EQUAL_PRINCIPAL) 03: 利随本清(CLEAN_PRINCIPAL_AND_INTEREST) 04: 按期付息,到期还本(PAYMENT_AT_MONTH_INTEREST_DUE) 05: 等本等息(EQUAL_PRINCIPAL_AND_INTEREST)
 	Term                  uint          `json:"term"`                  // 期限
