@@ -74,7 +74,7 @@ type LoanSummary struct {
 	OtsdPrincipal  float64    `json:"otsdPrincipal"`  // 未还本金
 	OutstandingAmt float64    `json:"outstandingAmt"` // 未还总额
 	Period         uint       `json:"period"`         // 借款期限
-	PeriodUnit     uint       `json:"periodUnit"`     // 借款期限单位, 01:天(DAY)；02:月(MONTH)；03:年(YEAR)
+	PeriodUnit     string     `json:"periodUnit"`     // 借款期限单位, 01:天(DAY)；02:月(MONTH)；03:年(YEAR)
 	RcvbInterest   float64    `json:"rcvbInterest"`   // 应还利息
 	RcvbPenalty    float64    `json:"rcvbPenalty"`    // 应还罚息
 	RcvbPrincipal  float64    `json:"rcvbPrincipal"`  // 应还本金
