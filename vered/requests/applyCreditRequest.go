@@ -114,17 +114,16 @@ type File struct {
 
 type LoanBasicInfo struct {
 	Amount              float64 `json:"imumAmount,omitempty"`
-	GuaType             string  `json:"guaType,omitempty"`         // 担保方式, 必输 04信用
-	IntCalMode          string  `json:"intCalMode"`                // 还款方式, 必输 01 等额本息 02 等额本金 03 一次还本付息 04 按期付息到期还本 05 等本等息
-	ProductDeadline     string  `json:"productDeadline,omitempty"` // 借款期限
-	ProductDeadlineInt  int     `json:"productDeadline,omitempty"` // 借款期限
-	ProductDeadlineUnit string  `json:"productDeadlineUnit"`       // 借款期限单位, 必输 01 天 02 月 03 年
-	PurposeCode         string  `json:"purposeCode"`               // 借款用途, 必输，00消费类
-	PurposeDetail       string  `json:"purposeDetail"`             // 借款用途详情
-	IntRateFloat        float64 `json:"intRateFloat,omitempty"`    // 浮动值, BigDecimal 非必输；单位：% ；精度：（9，4）
-	IntRateIdenf        float64 `json:"intRateIdenf,omitempty"`    // 借款利率, BigDecimal 必输；单位：% ；精度：（9，4）
-	IntRateRatio        float64 `json:"intRateRatio,omitempty"`    // 浮动比例, BigDecimal 非必输 ；单位：% ；精度：（9，4）
-	RepaymentDay        uint    `json:"repaymentDay,omitempty"`    // 还款日
+	GuaType             string  `json:"guaType,omitempty"`      // 担保方式, 必输 04信用
+	IntCalMode          string  `json:"intCalMode"`             // 还款方式, 必输 01 等额本息 02 等额本金 03 一次还本付息 04 按期付息到期还本 05 等本等息
+	ProductDeadline     string  `json:"productDeadline"`        // 借款期限
+	ProductDeadlineUnit string  `json:"productDeadlineUnit"`    // 借款期限单位, 必输 01 天 02 月 03 年
+	PurposeCode         string  `json:"purposeCode"`            // 借款用途, 必输，00消费类
+	PurposeDetail       string  `json:"purposeDetail"`          // 借款用途详情
+	IntRateFloat        float64 `json:"intRateFloat,omitempty"` // 浮动值, BigDecimal 非必输；单位：% ；精度：（9，4）
+	IntRateIdenf        float64 `json:"intRateIdenf,omitempty"` // 借款利率, BigDecimal 必输；单位：% ；精度：（9，4）
+	IntRateRatio        float64 `json:"intRateRatio,omitempty"` // 浮动比例, BigDecimal 非必输 ；单位：% ；精度：（9，4）
+	RepaymentDay        uint    `json:"repaymentDay,omitempty"` // 还款日
 }
 
 func (this *ApplyCreditRequest) Method() string {
