@@ -8,9 +8,9 @@ import (
 
 type CalcRepaymentRequest struct {
 	vered.BaseRequest
-	LoanNum      string `json:"loanNum"`   // 借据编号
-	RepayMode    string `json:"repayMode"` // 还款模式, 01：提前结清，03：强制提前结清
-	ScheduleDate string `json:"scheduleDate,omitempty"`
+	LoanNum      string `json:"loanNum"`                // 借据编号
+	RepayMode    string `json:"repayMode"`              // 还款模式, 01：提前结清，03：强制提前结清
+	ScheduleDate string `json:"scheduleDate,omitempty"` // ignore
 }
 
 func (this *CalcRepaymentRequest) Method() string {
