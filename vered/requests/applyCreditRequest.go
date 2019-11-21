@@ -99,10 +99,16 @@ type ContactNp struct {
 }
 
 type BankAccount struct {
-	Name     string `json:"acName"`          // 账户户名
-	Num      string `json:"acNo"`            // 账户号
-	OpenBank string `json:"openAccountBank"` // 开户行
-	Phone    string `json:"phoneno"`         // 银行预留手机号
+	Name         string `json:"acName"`                 // 账户户名
+	Num          string `json:"acNo"`                   // 账户号
+	OpenBank     string `json:"openAccountBank"`        // 开户行
+	Phone        string `json:"phoneno"`                // 银行预留手机号
+	AcType       string `json:"acType"`                 // 账户类型, 必输，00：一般账户（对公账户），04：基本账户（对公账户）
+	BankArea     string `json:"bankArea,omitempty"`     // 开户行所在区
+	BankCity     string `json:"bankCity,omitempty"`     // 开户行所在市
+	BankProvince string `json:"bankProvince,omitempty"` // 开户行所在省
+	CertNum      string `json:"certNum,omitempty"`      // 证件号码
+	CertType     string `json:"certType,omitempty"`     // 证件类型, lp00:社会信用代码;lp01:营业执照;99: 其他;
 }
 
 type File struct {
