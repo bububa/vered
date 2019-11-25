@@ -103,7 +103,7 @@ type BankAccount struct {
 	Num          string `json:"acNo"`                   // 账户号
 	OpenBank     string `json:"openAccountBank"`        // 开户行
 	Phone        string `json:"phoneno"`                // 银行预留手机号
-	AcType       string `json:"acType"`                 // 账户类型, 必输，00：一般账户（对公账户），04：基本账户（对公账户）
+	AcType       string `json:"acType,omitempty"`       // 账户类型, 必输，00：一般账户（对公账户），04：基本账户（对公账户）
 	BankArea     string `json:"bankArea,omitempty"`     // 开户行所在区
 	BankCity     string `json:"bankCity,omitempty"`     // 开户行所在市
 	BankProvince string `json:"bankProvince,omitempty"` // 开户行所在省
