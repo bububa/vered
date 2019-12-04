@@ -39,11 +39,11 @@ func RSADecryptBase64(privateKey []byte, cryptoText string) ([]byte, error) {
 }
 
 func RSASignWithSHA1(privateKey []byte, data []byte) ([]byte, error) {
-	privInterface, err := x509.ParsePKCS8PrivateKey(privateKey)
+	priv, err := x509.ParsePKCS1PrivateKey(privateKey)
 	if err != nil {
 		return nil, err
 	}
-	priv := privInterface.(*rsa.PrivateKey)
+	//priv := privInterface.(*rsa.PrivateKey)
 	hash := Sha1Sum(data)
 	return rsa.SignPKCS1v15(rand.Reader, priv, crypto.SHA1, hash)
 }

@@ -128,7 +128,6 @@ func SignRequest(req Request, publicKey []byte, privateKey []byte, secret []byte
 	if err != nil {
 		return nil, err
 	}
-	fmt.Println(string(reqBytes))
 	encReq, err := util.AESEncryptBase64(secret, reqBytes)
 	if err != nil {
 		return nil, err
@@ -155,14 +154,14 @@ func SignRequest(req Request, publicKey []byte, privateKey []byte, secret []byte
 	return signedReq, nil
 }
 
-func (this *SignedRequest) Reader() (io.Reader, string, error) {
+func (this *SignedRequest) Reader() ([]byte, io.Reader, string, error) {
 	if this.EncFile == nil {
 		bytesData, err := json.Marshal(this)
 		if err != nil {
-			return nil, "", err
+			return nil, nil, "", err
 		}
 		contentType := "application/json;charset=UTF-8"
-		return bytes.NewReader(bytesData), contentType, nil
+		return bytesData, bytes.NewReader(bytesData), contentType, nil
 	}
 	buf := new(bytes.Buffer)
 	w := multipart.NewWriter(buf)
@@ -172,15 +171,15 @@ func (this *SignedRequest) Reader() (io.Reader, string, error) {
 	w.WriteField("reqSign", this.ReqSign)
 	fw, err := w.CreateFormFile("encFile", "file")
 	if err != nil {
-		return nil, "", err
+		return nil, nil, "", err
 	}
 	_, err = fw.Write(this.EncFile["fileMap"])
 	if err != nil {
-		return nil, "", err
+		return nil, nil, "", err
 	}
 	contentType := w.FormDataContentType()
 	w.Close()
-	return buf, contentType, nil
+	return buf.Bytes(), buf, contentType, nil
 }
 
 type BizResponse struct {
@@ -228,7 +227,6 @@ func (this *EncryptedResponse) Decrypt(publicKey []byte, secret []byte) ([]byte,
 	if err != nil {
 		return nil, err
 	}
-	fmt.Println(string(data))
 	err = util.RSAVerifySignWithSha1(publicKey, util.Sha1Sum(data), this.Model.RespSign)
 	if err != nil {
 		return nil, err
